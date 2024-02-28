@@ -375,7 +375,7 @@ video{
 }
 
 .coaches .item{
-  margin-top: 30px;
+  margin: 30px 60px 0;
   gap: 50px;
   display: flex;
   justify-content: space-around;
@@ -388,5 +388,26 @@ video{
 }
 
 .coaches img{
-  width: 50%;
+  width: 30%;
+  margin: 10px;
+  border-radius: 6px;
+}
+
+.coaches .info p{
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 6px;
+  color: white;
+}
+
+.coaches .info p:nth-child(2){
+  background-color: #b00d0d;
+}
+
+.coaches .info p:nth-child(4){
+  background-color: green;
+}
+
+.coaches .info p:nth-child(6){
+  color: black;
 }
