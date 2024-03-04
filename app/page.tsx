@@ -1,14 +1,17 @@
 "use client"
 
-import Image from "next/image";
 import "./globals.css";
 import { useRef, useState } from "react";
+import { Lobster } from "next/font/google";
 
 export default function Home() {
 
   const [Btn , SetBtn] = useState(1);
 
-  const RefSchedule = useRef<HTMLImageElement>(null);
+  const RefSchedule = useRef<HTMLElement>(null);
+  const RefPrice = useRef<HTMLElement>(null)
+  const RefCoaches = useRef<HTMLElement>(null)
+  const RefAdress = useRef<HTMLElement>(null)
   
 
   return (
@@ -23,10 +26,10 @@ export default function Home() {
 
           <div className="navbar">
             {/* <p>Зал</p> */}
-            <p>Адрес</p>
+            <p onClick={()=>RefAdress.current?.scrollIntoView({behavior: 'smooth'})}>Адрес</p>
             <p onClick={()=>RefSchedule.current?.scrollIntoView({behavior: 'smooth'})}>Расписание</p>
-            <p>Тренерский состав</p>
-            <p>Прайс</p>
+            <p onClick={()=>RefCoaches.current?.scrollIntoView({behavior: 'smooth'})}>Тренерский состав</p>
+            <p onClick={()=>RefPrice.current?.scrollIntoView({behavior: 'smooth'})}>Прайс</p>
             
           </div>
 
@@ -42,10 +45,9 @@ export default function Home() {
         </div>
         
         <div className="zapisat">
-          {Btn==1?<div className="zapisat">
           <div className="wrapper">
             <a className="cta" href="#">
-              <span>Записаться</span>
+              <span>ЗАПИСАТЬСЯ</span>
               <span>
                 <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" >
                   <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -56,32 +58,16 @@ export default function Home() {
                 </svg>
               </span> 
             </a>
-          </div>
-        </div>:null}
-          {Btn==2?<a href="#">Записаться</a>:
-          null}
-
-          {Btn==3?
-          <div className="link raise">Записаться</div>
-        :null}
+        </div>
           
         </div>
-
-        <div style={{position: 'absolute', transform: 'translateY(-80px)'}}>
-          <div onClick={()=>SetBtn(1)}>1</div>
-          <div onClick={()=>SetBtn(2)}>2</div>
-          <div onClick={()=>SetBtn(3)}>3</div>
-        </div>
         
 
       
 
         
       
-      {/* <video controls>
-        <source src="/video.mp4" type="video/mp4"/>
-      </video>
-       */}
+
         </section>
         <section className="second">
           <div>
@@ -107,8 +93,8 @@ export default function Home() {
             
           </div>
         </section>
-        <section  className="schedule">
-          <img ref={RefSchedule} src="/punchingBag.jpg" alt="" />
+        <section ref={RefSchedule} className="schedule">
+          <img src="/punchingBag.jpg" alt="" />
           <div className="info">
             <h1 className="title">Групповые тренировки</h1>
             <div className="list">
@@ -198,7 +184,7 @@ export default function Home() {
           </div>
         </section>
         
-        <section className="coaches">
+        <section className="coaches" ref={RefCoaches}>
           
           <h1 className="title">Тренерский состав<span className="flare"></span></h1>
           <div className="conteiner">
@@ -207,13 +193,13 @@ export default function Home() {
               <div className="info">
               Знакомьтесь, наш тренер по боксу - <h1>Иваненко Виктор Сергеевич🥊</h1>
 
-              <p style={{background: '#b00d0d'}}>
+              <p >
                 Более 10 лет Виктор Сергеевич тренирует детей и взрослых, прививая им мышление чемпионов, делая сильными и смелыми. Он единственный тренер в городе, который научит боксу даже самых маленьких 👣4+!
                 Имеет высшее образование, среднее специальное образование в области ФК, также продолжает обучение в области ФК.
               </p>
 
               <br/>
-              <p style={{background: 'green'}}>
+              <p >
                 Виктор Сергеевич ведёт секции:<br/>
                 🥊ОФП с элементами бокса 4 +<br/>
                 🥊Олимпийский бокс 7 +<br/>
@@ -222,51 +208,94 @@ export default function Home() {
                 🥊Индивидуальные тренировки.<br/>
               </p>
               <br/>
-              <p style={{color: 'black'}}>
+              <p>
                 Хотите к нему на тренировку? Есть набор в группы, пишите в директ и запишем вас на пробный урок.
               </p>
               </div>
               </div>
+              <hr/>
               <div className="item">
                 <img src="/roman_v.jpg" alt="" />
                 <div className="info">
                   
                     Знакомьтесь, наш тренер по боксу - <h1>Сальный Роман Викторович🥊</h1>
-                  <p style={{background: '#b00d0d'}}>
+                  <p>
                     Тренерский стаж 17 лет. Доцент кафедры физической культуры в ТГПИ.
                     Роман Викторович тренирует боксёров возрастом 12+.
                   </p>
                   <br />
-                  <p style={{background: 'green'}}>
+                  <p>
                     Расписание тренировок:<br/>
                     Вт, чт 18.00-20.00<br/>
                     Сб 16.00-18.00<br/>
                   </p>
                   <br />
-                  <p style={{color: 'black'}}>Успейте записаться 💪🏾</p>
+                  <p>Успейте записаться 💪🏾</p>
                 </div>
               </div>
+              <hr />
               <div className="item">
-                <img src="" alt="" />
-                <div className="info"></div>
-              </div>
-              <div className="item">
-                <img src="" alt="" />
-                <div className="info"></div>
-              </div>
-              <div className="item">
-                <img src="" alt="" />
-                <div className="info"></div>
+                <img src="/maria_v.jpg" alt="" />
+                <div className="info">
+                  Знакомьтесь, наш прекрасный тренер
+                  <h1>Арсентьева Мария Викторовна🤗</h1>
+                  <p>
+                    Более 4х лет, Мария Викторовна преподает художественную гимнастику взрослым и деткам от 3х лет. Имеет средне-специальное образование и получает высшее образование в области физической культуры.
+                  </p>
+                  <br/>
+                  <p>
+                    Ведет секции:<br/>
+                    🧘🏼‍♂ Художественная гимнастика деткам 3+<br/>
+                    🧘🏼‍♂ ОФП (общая физическая подготовка) для деток 3,5-5 лет.<br/>
+                    🧘🏼‍♂Фитнес - растяжка для взрослых.
+                  </p>
+                  <br/>
+                  <p>
+                    Записаться на тренировку вы можете просто написав нам в директ.
+                  </p>
+                </div>
             </div>
           </div>
         </section>
 
+        <section className="price" ref={RefPrice}>
+          <h1>Прайс Лист</h1>
+          <div className="conteiner">
+            <div className="item grownUp">
+              <p>
+                <span>Разовое посещение</span>
+                <span>400 ₽</span>
+              </p>
+              <p><span>Абоенемент 8 занятий</span><span>2500 ₽</span></p>
+              <p><span>Абоенемент 12 занятий</span><span>3000 ₽</span></p>            </div>
+            <div className="item kids">
+              <p><span>Разовое посещение</span><span>350 ₽</span></p>
+              <p><span>Абоенемент 8 занятий</span><span>2500 ₽</span></p>
+              <p><span>Абоенемент 12 занятий</span><span>3000 ₽</span></p>
+            </div>
+          </div>
+
+        </section>
+        <section ref={RefAdress} className="adress">
+          <div className="contact">
+            <img src="/logo.png" width={200} alt="" />
+            <h1>КОНТАКТЫ</h1>
+            <p>+7 (988) 950-40-00</p>
+            <p>Таганрог, Москатова 6а</p>
+            <p>
+              <a href="https://vk.com/southern_boxing_academy" target="_blank">
+                <img src="/cib-vk.svg" alt="" />
+              </a>
+              <a href="https://www.instagram.com/southern.boxing.academy?igsh=ZHZ1cGFwMjk5N2lo" target="_blank">
+                <img src="/cib-instagram.svg" alt="" />
+              </a>
+              
+            </p>
+          </div>
+          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2669090564d35ba8c8ebbc5bc9c4176358bcaeaacaad1e96e0ed35505437363a&amp;source=constructor" width="700" height="560"></iframe>
+        </section>
       </main>
-      
-
-
       <footer>
-
       </footer>
       
     </div>

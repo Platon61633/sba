@@ -132,9 +132,6 @@ main{
     transform: skewX(15deg) 
   }
 
-  .cta span:hover{
-    /* color: #fbde38; */
-  }
 
 
   .cta span:nth-child(2) {
@@ -184,20 +181,20 @@ path.two {
     }
 }
 
-a{
-  display: block;
-  font-size: 24px;
+ .wrapper a{
+  display: flex;
+  align-items: center;
   font-family: sans-serif;
+  font-size: 2em;
   text-decoration: none;
-  color: #333;
   border-top: 2px solid #333;
   border-bottom: 2px solid #333;
-  padding: 10px;
+  padding: 10px 20px;
   letter-spacing: 2px;
   transition: all .25s;
 }
 
-a:hover{
+ .wrapper a:hover{
   letter-spacing: 15px;
 }
 
@@ -374,6 +371,12 @@ video{
   flex-direction: column;
 }
 
+.coaches hr{
+  color: #000000;
+  background-color: #000000;
+  width: 90%;
+}
+
 .coaches .item{
   margin: 30px 60px 0;
   gap: 50px;
@@ -410,4 +413,112 @@ video{
 
 .coaches .info p:nth-child(6){
   color: black;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2em;
+  background: linear-gradient(white, rgb(255, 230, 0), white);
+}
+
+.price h1{
+  /* text-decoration: underline; */
+  /* font-weight: 700; */
+  font-size: 2em;
+  font-family: "Lobster", sans-serif;
+  /* overflow: hidden; */
+}
+
+.price h1::after{
+  display: block;
+  margin-top: 2px;
+  content: '';
+  width: 100%;
+  height: 4px;
+  border-radius: 6px;
+  background-color: #000000;
+}
+
+.price .conteiner{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.price .item{
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  border: 2px solid black;
+  margin: 30px;
+  padding: 100px 50px;
+}
+
+.price .item p{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.price .grownUp::before{
+  /* display: block; */
+  position: absolute;
+  content: 'Взрослый';
+  transform: translate(-52px, -127px);
+  color: white;
+  z-index: 2;
+  background-color: #b00d0d;
+  padding: 10px;
+}
+
+.price .kids::before{
+  /* display: block; */
+  position: absolute;
+  content: 'Детский';
+  transform: translate(-52px, -127px);
+  color: white;
+  z-index: 2;
+  background-color: #b00d0d;
+  padding: 10px;
+}
+
+/* .price img{
+  height: 80vh;
+} */
+
+.adress{
+  display: flex;
+  justify-content: space-around;
+  background: linear-gradient(white, red,green, white);
+  color: white;
+}
+
+.contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact h1{
+  font-size: 2.5em;
+}
+
+.contact p{
+  font-size: 1.5em;
+}
+
+.contact p:has(img){
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact p img{
+  width: 50px;
 }
