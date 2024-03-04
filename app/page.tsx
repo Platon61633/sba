@@ -2,16 +2,19 @@
 
 import "./globals.css";
 import { useRef, useState } from "react";
-import { Lobster } from "next/font/google";
 
 export default function Home() {
 
   const [Btn , SetBtn] = useState(1);
+  const [Zapisat , SetZapisat] = useState(false);
+  
 
   const RefSchedule = useRef<HTMLElement>(null);
   const RefPrice = useRef<HTMLElement>(null)
   const RefCoaches = useRef<HTMLElement>(null)
   const RefAdress = useRef<HTMLElement>(null)
+
+
   
 
   return (
@@ -36,6 +39,27 @@ export default function Home() {
         </div>
       </header>
 
+      {Zapisat?
+      <div className="zap" onClick={()=>SetZapisat(false)}>
+        <div className="window" onClick={e=>e.stopPropagation()}>
+          <img src="/logo.png" width={200} alt="" />
+          <h1>Cвяжитесь с нами!</h1>
+          <div className="svyaz">
+            <a href='tel:+79889504000' className="button">Позвонить</a>  
+            <p>
+              <a href="https://vk.com/southern_boxing_academy" target="_blank">
+              <img src="/cib-vk.svg" alt="" />
+              </a>
+              <a href="https://www.instagram.com/southern.boxing.academy?igsh=ZHZ1cGFwMjk5N2lo" target="_blank">
+                <img src="/cib-instagram.svg" alt="" />
+              </a>
+            </p>
+        </div>
+      </div>
+
+      </div>
+      :null}
+
       <main>
         <section className="first">
         <div className="view">
@@ -46,7 +70,7 @@ export default function Home() {
         
         <div className="zapisat">
           <div className="wrapper">
-            <a className="cta" href="#">
+            <a onClick={()=>SetZapisat(true)} className="cta" href="#">
               <span>ЗАПИСАТЬСЯ</span>
               <span>
                 <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" >
@@ -257,7 +281,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         <section className="price" ref={RefPrice}>
           <h1>Прайс Лист</h1>
           <div className="conteiner">
