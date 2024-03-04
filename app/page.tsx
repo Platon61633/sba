@@ -276,7 +276,8 @@ export default function Home() {
           </div>
 
         </section>
-        <section ref={RefAdress} className="adress">
+        <section ref={RefAdress}>
+        <div  className="adress">
           <div className="contact">
             <img src="/logo.png" width={200} alt="" />
             <h1>КОНТАКТЫ</h1>
@@ -293,10 +294,26 @@ export default function Home() {
             </p>
           </div>
           <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2669090564d35ba8c8ebbc5bc9c4176358bcaeaacaad1e96e0ed35505437363a&amp;source=constructor" width="700" height="560"></iframe>
+        </div>
+
+
+<div className="area" >
+            <ul className="circles">
+                    <li>🥊</li>
+                    <li>🥊</li>
+                    <li>🥊</li>
+                    <li>🥊</li>
+                    <li>🥊</li>
+                    <li>🥊</li>
+                    <li>🥊</li>
+                    <li>🥊</li>
+                    <li>🥊</li>
+                    <li>🥊</li>
+                    
+            </ul>
+    </div >
         </section>
       </main>
-      <footer>
-      </footer>
       
     </div>
   );
