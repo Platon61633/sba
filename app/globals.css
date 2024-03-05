@@ -13,6 +13,7 @@ header .logo{
 
 header .logo img{
   padding: 5px 8px;
+  width: 75px;
 }
 
 header .header{
@@ -58,6 +59,7 @@ main{
   display: flex;
   background: url('../public/fon21.jpg') no-repeat;
   background-size: contain;
+  background-position: center;
   height: calc(100vw*760/2056);
   font-size: 2rem;
   color: white;
@@ -227,6 +229,7 @@ video{
 }
 
 .willBetter .conteiner{
+  border: 1px solid black;
   background-color: rgb(255, 255, 255);
   padding: 10px;
   border-radius: 20px;
@@ -690,9 +693,52 @@ video{
   padding-top: 20px;
 }
 
+/* -------------------------Mobile style-------------------- */
+
+.first-m{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.first-m img{
+  width: 100%;
+}
+
+.first-m .text{
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  background-color: #000000;
+  color: white;
+  padding: 5px;
+  height: 100vw;
+  background: url(../public//unnamed.jpg) no-repeat;
+  background-size: contain;
+  margin: 10px 0;
+  box-shadow: 0px 0px 10px 10px #00000069;
+}
+
+.first-m .text p{
+  text-align: center;
+  background-color: #000000ae;
+  padding: 10px;
+}
+
 @media (max-width: 500px){
+  header .header{
+    padding: 0 10px;
+    font-size: 1em;
+  }
+
+  header .logo img{
+    width: 50px;
+  }
+
   .view{
     font-size: 1em;
+    background-size: cover;
+    padding-bottom: 70px;
   }
   
   .coaches .item{
@@ -705,5 +751,43 @@ video{
 
   .coaches .title{
     padding: 10px 30px;
+  }
+  .second{
+    flex-wrap: wrap;
+    font-size: 0.7em;
+  }
+  .second h1{
+    font-size: 1.3em;
+  }
+
+  .willBetter{
+    width: 80vw;
+    height: 90vw;
+  }
+
+  .willBetter h1{
+    margin-bottom: 0;
+  }
+
+  .willBetter img{
+    width: 100%;
+    height: auto;
+  }
+  .media-none{
+    display: none;
+  }
+
+  .schedule .list{
+    font-size: 0.8em;
+    align-items: center;
+    justify-content: baseline;
+  }
+  .schedule .item, .schedule .head{
+    text-align: center;
+    font-size: 1.2em;
+  }
+  .schedule .title{
+    text-align: center;
+    font-size: 1.5em;
   }
 }
