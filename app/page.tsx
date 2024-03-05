@@ -12,13 +12,40 @@ export default function Home() {
 
   const [Btn , SetBtn] = useState(false);
   const [Zapisat , SetZapisat] = useState(false);
+  const [paint , Setpaint] = useState(1);
+  const [btn , Setbtn] = useState(1);
+  const [Open , SetOpen] = useState<Boolean | string>(false);
   
 
+  
+  
+  
+  const RefBtn = useRef<any>(null);
   const RefSchedule = useRef<HTMLElement>(null);
   const RefPrice = useRef<HTMLElement>(null)
   const RefCoaches = useRef<HTMLElement>(null)
   const RefAdress = useRef<HTMLElement>(null)
 
+
+  const orient = (e: any)=>{
+    const x = e.clientX - RefBtn.current?.offsetLeft
+    const y = e.clientY - RefBtn.current?.offsetTop
+    if (!Open) {
+      if (x>66 && x<134) {
+        if (y<40) {
+          SetOpen('top');
+        }else{
+          SetOpen('bottom');
+        }
+      }else{
+        if (x<66) {
+          SetOpen('left');
+        }else{
+          SetOpen('right');
+        }
+      }
+    }
+  }
 
   // ------------Внимание----------------
   // элементы с className='media-none' не отображаются при экране меньшем 500px
@@ -75,6 +102,8 @@ export default function Home() {
       </div>
       :null}
 
+        
+
       <main>
         
         {isBigScreen?
@@ -84,6 +113,8 @@ export default function Home() {
             Академия здорового тела, острого ума, точного удара и воли к победе — академия сегодняшних чемпионов и на ринге, и в жизни.
             </span>
           </div>
+
+
           <div className="zapisat">
             <div className="wrapper">
               <a onClick={()=>SetZapisat(true)} className="cta" href="#">
@@ -106,6 +137,28 @@ export default function Home() {
           <div className="text">
             <p>Академия здорового тела, острого ума, точного удара и воли к победе — академия сегодняшних чемпионов и на ринге, и в жизни.</p>
           </div>
+          <div className="zapisat-m">
+            
+          </div>
+
+        <div className="App">
+      <div ref={RefBtn} className={Open?"btn "+Open+" is-open":'btn'} onClick={e=>orient(e)}>
+  <div className="btn-back">
+    {Open?
+    <div>
+    <p>Are you sure you want to do that?</p>
+    <div>lorem fr jefke f ewkfj 34jhr wejwehbrkew fwje wkejbfwekjbf w efkjw efh wejhf e fkej fj4h fjwrv</div>
+    <div>lorem fr jefke f ewkfj 34jhr wejwehbrkew fwje wkejbfwekjbf w efkjw efh wejhf e fkej fj4h fjwrv</div>
+    <div>lorem fr jefke f ewkfj 34jhr wejwehbrkew fwje wkejbfwekjbf w efkjw efh wejhf e fkej fj4h fjwrv</div>
+    
+    <button className="yes">Yes</button>
+    </div>
+  :null}
+  </div>
+  <div className="btn-front">ЗАПИСАТЬСЯ</div>
+</div>
+
+    </div>
         </section>}
 
         <section className="second">
