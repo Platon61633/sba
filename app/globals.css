@@ -966,4 +966,11 @@ video{
   .adress{
   flex-wrap: wrap;
   }
+  .circles{
+    /* overflow-x: hidden; */
+    width: 50%;
+  }
+  .circles li{
+    bottom: 60px;
+  }
 }
