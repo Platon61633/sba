@@ -4,6 +4,7 @@ import "./globals.css";
 
 const font = Prosto_One({ subsets: ["latin"], weight: '400'});
 
+
 export const metadata: Metadata = {
   title: "Южная Академия Бокса",
   description: "Южная Академия Бокса | South Box Academic",

@@ -4,6 +4,7 @@ p, h1, body, ul ,li{
 
 a{
   text-decoration: none;
+  color: #000000;
 }
 
 header .logo{
@@ -727,11 +728,12 @@ video{
 }
 
 
+
+
 /* ------------------------------------------------ */
 
 .App {
   display: flex;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 18px;
   perspective: 1000px;
   flex-direction: column;
@@ -854,6 +856,33 @@ video{
   transform: rotateY(-180deg);
 }
 
+/* ---------------------------------------------- */
+
+.window-m{
+
+}
+
+.svyaz-m .phone{
+  background-color: green;
+  border-radius: 8px;
+}
+
+.svyaz-m .button{
+  color: white;
+  background-color: green;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.svyaz-m p{
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.svyaz-m img{
+  width: 50px;
+}
 
 
 @media (max-width: 500px){
@@ -920,5 +949,21 @@ video{
   .schedule .title{
     text-align: center;
     font-size: 1.5em;
+  }
+  .price{
+    font-size: 1em;
+  }
+  .price .conteiner{
+    margin-top: 10px;
+  }
+  .price .item{
+    width: 80vw;
+    padding: 30px 15px;
+  }
+  .price .grownUp::before, .price .kids::before{
+    transform: translate(-17px, -51px);
+  }
+  .adress{
+  flex-wrap: wrap;
   }
 }

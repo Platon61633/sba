@@ -145,13 +145,21 @@ export default function Home() {
       <div ref={RefBtn} className={Open?"btn "+Open+" is-open":'btn'} onClick={e=>orient(e)}>
   <div className="btn-back">
     {Open?
-    <div>
-    <p>Are you sure you want to do that?</p>
-    <div>lorem fr jefke f ewkfj 34jhr wejwehbrkew fwje wkejbfwekjbf w efkjw efh wejhf e fkej fj4h fjwrv</div>
-    <div>lorem fr jefke f ewkfj 34jhr wejwehbrkew fwje wkejbfwekjbf w efkjw efh wejhf e fkej fj4h fjwrv</div>
-    <div>lorem fr jefke f ewkfj 34jhr wejwehbrkew fwje wkejbfwekjbf w efkjw efh wejhf e fkej fj4h fjwrv</div>
-    
-    <button className="yes">Yes</button>
+    <div className="window-m">
+      <p>СВЯЖИТЕСЬ С НАМИ!</p>
+      <div className="svyaz-m">
+            <p>
+              <a href="https://vk.com/southern_boxing_academy" target="_blank">
+              <img src="/cib-vk.svg" alt="" />
+              </a>
+              <a href="https://www.instagram.com/southern.boxing.academy?igsh=ZHZ1cGFwMjk5N2lo" target="_blank">
+                <img src="/cib-instagram.svg" alt="" />
+              </a>
+              <a  href='tel:+79889504000' target="_blank">
+                <img className="phone" src="/cil-phone.svg" alt="" />
+              </a>
+            </p>
+      </div>
     </div>
   :null}
   </div>
@@ -367,7 +375,7 @@ export default function Home() {
           </div>
 
         </section>
-        {/* <section ref={RefAdress}>
+        <section ref={RefAdress}>
         <div  className="adress">
           <div className="contact">
             <img src="/logo.png" width={200} alt="" />
@@ -384,7 +392,7 @@ export default function Home() {
               
             </p>
           </div>
-          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2669090564d35ba8c8ebbc5bc9c4176358bcaeaacaad1e96e0ed35505437363a&amp;source=constructor" width="700" height="560"></iframe>
+          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2669090564d35ba8c8ebbc5bc9c4176358bcaeaacaad1e96e0ed35505437363a&amp;source=constructor" width={isBigScreen?"700":'350'} height={isBigScreen?"560":'280'}></iframe>
         </div>
 
 
@@ -403,7 +411,7 @@ export default function Home() {
                     
             </ul>
     </div >
-        </section> */}
+        </section>
       </main>
       
     </div>
