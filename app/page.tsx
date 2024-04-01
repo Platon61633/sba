@@ -3,17 +3,15 @@
 import MediaQuery, { useMediaQuery } from "react-responsive";
 import "./globals.css";
 import { useEffect, useRef, useState } from "react";
-import { log } from "console";
 
 export default function Home() {
 
 
   const isBigScreen = useMediaQuery({ query: '(min-width: 500px)' })
 
-  const [Btn , SetBtn] = useState(false);
+  const [Menu , SetMenu] = useState(false);
+  
   const [Zapisat , SetZapisat] = useState(false);
-  const [paint , Setpaint] = useState(1);
-  const [btn , Setbtn] = useState(1);
   const [Open , SetOpen] = useState<Boolean | string>(false);
   
 
@@ -78,14 +76,53 @@ export default function Home() {
           <img src="/logo(small).png" alt="" />
           <span>SBA | Южная Академия Бокса</span>
         </div>
+        <div>
+          <img src="/menu.svg" width={40} onClick={()=>SetMenu(true)}/>
+        </div>
       </div>
     </header>}
+
+    {Menu?
+    <div className="menu" onClick={()=>SetMenu(false)}>
+      <div className="conteiner" onClick={e=>e.stopPropagation()}>
+        <img src="/logo(small).png" width={110} alt="" />
+        
+        <div className="navbar">
+          {/* <p>Зал</p> */}
+          <hr />
+          <p onClick={()=>{
+            SetMenu(false)
+            RefAdress.current?.scrollIntoView({behavior: 'smooth'})
+          }}>Адрес</p>
+          <p onClick={()=>{
+            SetMenu(false)
+            RefSchedule.current?.scrollIntoView({behavior: 'smooth'})
+          }}>Расписание</p>
+          <p onClick={()=>{
+            SetMenu(false)
+            RefCoaches.current?.scrollIntoView({behavior: 'smooth'})
+          }}>Тренерский состав</p>
+          <p onClick={()=>{
+            SetMenu(false)
+            RefPrice.current?.scrollIntoView({behavior: 'smooth'})
+          }}>Прайс</p>
+          <hr />
+        </div>
+        
+      </div>
+    </div>
+    :null}
 
       {Zapisat?
       <div className="zap" onClick={()=>SetZapisat(false)}>
         <div className="window" onClick={e=>e.stopPropagation()}>
           <img src="/logo.png" width={200} alt="" />
           <h1>Cвяжитесь с нами!</h1>
+          <div onClick={()=>{
+            SetZapisat(false)
+            RefSchedule.current?.scrollIntoView({behavior: 'smooth'})
+          }}
+          className="schedule">СМОТРЕТЬ РАСПИСАНИЕ</div>
           <div className="svyaz">
             <a href='tel:+79889504000' className="button">Позвонить</a>  
             <p>
@@ -150,13 +187,21 @@ export default function Home() {
       <div className="svyaz-m">
             <p>
               <a href="https://vk.com/southern_boxing_academy" target="_blank">
-              <img src="/cib-vk.svg" alt="" />
+                <div>VK: southern_boxing_academy</div>
+              </a>
+              <a href="https://www.instagram.com/southern.boxing.academy?igsh=ZHZ1cGFwMjk5N2lo" target="_blank">
+                <div>INST: southern.boxing.academy</div>
+              </a>
+              <a  href='tel:+79889504000' target="_blank">
+                <div>+79889504000</div>
+              </a>
+            </p>
+            <p>
+            <a href="https://vk.com/southern_boxing_academy" target="_blank">
+                <img src="/cib-vk.svg" alt="" />
               </a>
               <a href="https://www.instagram.com/southern.boxing.academy?igsh=ZHZ1cGFwMjk5N2lo" target="_blank">
                 <img src="/cib-instagram.svg" alt="" />
-              </a>
-              <a  href='tel:+79889504000' target="_blank">
-                <img className="phone" src="/cil-phone.svg" alt="" />
               </a>
             </p>
       </div>
@@ -291,7 +336,7 @@ export default function Home() {
             <div className="item">
               <img src="/victor_s.jpg" alt="" />
               <div className="info">
-              Знакомьтесь, наш тренер по боксу - <h1>Иваненко Виктор Сергеевич🥊</h1>
+              {isBigScreen?'Знакомьтесь, наш тренер по боксу -':null} <h1>Иваненко Виктор Сергеевич🥊</h1>
 
               <p >
                 Более 10 лет Виктор Сергеевич тренирует детей и взрослых, прививая им мышление чемпионов, делая сильными и смелыми. Он единственный тренер в городе, который научит боксу даже самых маленьких 👣4+!
@@ -318,7 +363,7 @@ export default function Home() {
                 <img src="/roman_v.jpg" alt="" />
                 <div className="info">
                   
-                    Знакомьтесь, наш тренер по боксу - <h1>Сальный Роман Викторович🥊</h1>
+                {isBigScreen?'Знакомьтесь, наш тренер по боксу -':null} <h1>Сальный Роман Викторович🥊</h1>
                   <p>
                     Тренерский стаж 17 лет. Доцент кафедры физической культуры в ТГПИ.
                     Роман Викторович тренирует боксёров возрастом 12+.
@@ -337,7 +382,7 @@ export default function Home() {
               <div className="item">
                 <img src="/maria_v.jpg" alt="" />
                 <div className="info">
-                  Знакомьтесь, наш прекрасный тренер
+                {isBigScreen?'Знакомьтесь, наш прекрасный тренер':null}
                   <h1>Арсентьева Мария Викторовна🤗</h1>
                   <p>
                     Более 4х лет, Мария Викторовна преподает художественную гимнастику взрослым и деткам от 3х лет. Имеет средне-специальное образование и получает высшее образование в области физической культуры.
