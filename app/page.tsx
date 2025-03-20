@@ -189,8 +189,8 @@ export default function Home() {
               <a href="https://vk.com/southern_boxing_academy" target="_blank">
                 <div>VK: southern_boxing_academy</div>
               </a>
-              <a href="https://www.instagram.com/southern.boxing.academy?igsh=ZHZ1cGFwMjk5N2lo" target="_blank">
-                <div>INST: southern.boxing.academy</div>
+              <a style={{color: 'green'}} href="https://www.instagram.com/southern.boxing.academy?igsh=ZHZ1cGFwMjk5N2lo" target="_blank">
+                <div style={{color: 'green'}}>INST: southern.boxing.academy</div>
               </a>
               <a  href='tel:+79889504000' target="_blank">
                 <div>+79889504000</div>
@@ -458,7 +458,12 @@ export default function Home() {
     </div >
         </section>
       </main>
-      
+      <div
+        style={{
+          textAlign: 'center',
+          margin: '50px'
+        }}
+      >написал сайт <a style={{color: 'blue'}} href="https://t.me/not_ALP">tg: not_ALP</a></div>
     </div>
   );
 }
