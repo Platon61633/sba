@@ -1089,7 +1089,7 @@ video{
 }
 
 .Game section .clear{
-  margin: 50px 0 70px;
+  margin: 40px 0 40px;
 }
 
 .Game section .clear span{
@@ -1106,13 +1106,14 @@ video{
   margin-top: 20px;
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
 }
 
 .Game .select .item{
   border-radius: 6px;
   border: 1px solid black;
   padding: 2px 5px;
+  margin: 0 5px;
 }
 
 .Game .Start{
