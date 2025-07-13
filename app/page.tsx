@@ -108,6 +108,9 @@ export default function Home() {
             SetMenu(false)
             RefPrice.current?.scrollIntoView({behavior: 'smooth'})
           }}>Прайс</p>
+          <p>
+            <Link href={'/game'} style={{color: '#dd0e0e'}}><p>Игра</p></Link>
+          </p>
           <hr />
         </div>
         
