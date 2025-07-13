@@ -3,6 +3,7 @@
 import MediaQuery, { useMediaQuery } from "react-responsive";
 import "./globals.css";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
 
@@ -65,6 +66,7 @@ export default function Home() {
           <p onClick={()=>RefSchedule.current?.scrollIntoView({behavior: 'smooth'})}>Расписание</p>
           <p onClick={()=>RefCoaches.current?.scrollIntoView({behavior: 'smooth'})}>Тренерский состав</p>
           <p onClick={()=>RefPrice.current?.scrollIntoView({behavior: 'smooth'})}>Прайс</p>
+          <Link href={'/game'} style={{color: '#dd0e0e'}}><p>Игра</p></Link>
           
         </div>
 
@@ -408,14 +410,14 @@ export default function Home() {
             <div className="item grownUp">
               <p>
                 <span>Разовое посещение</span>
-                <span>400 ₽</span>
+                <span>450 ₽</span>
               </p>
-              <p><span>Абоенемент 8 занятий</span><span>2500 ₽</span></p>
-              <p><span>Абоенемент 12 занятий</span><span>3000 ₽</span></p>            </div>
+              <p><span>Абоенемент 8 занятий</span><span>3000 ₽</span></p>
+              <p><span>Абоенемент 12 занятий</span><span>3500 ₽</span></p>            </div>
             <div className="item kids">
-              <p><span>Разовое посещение</span><span>350 ₽</span></p>
-              <p><span>Абоенемент 8 занятий</span><span>2500 ₽</span></p>
-              <p><span>Абоенемент 12 занятий</span><span>3000 ₽</span></p>
+              <p><span>Разовое посещение</span><span>400 ₽</span></p>
+              <p><span>Абоенемент 8 занятий</span><span>3000 ₽</span></p>
+              <p><span>Абоенемент 12 занятий</span><span>3500 ₽</span></p>
             </div>
           </div>
 
@@ -463,7 +465,7 @@ export default function Home() {
           textAlign: 'center',
           margin: '50px'
         }}
-      >написал сайт <a style={{color: 'blue'}} href="https://t.me/not_ALP">tg: not_ALP</a></div>
+      >написал сайт <a style={{color: 'blue'}} href="https://t.me/not_LP">tg: not_LP</a></div>
     </div>
   );
 }
