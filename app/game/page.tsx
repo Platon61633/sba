@@ -13,6 +13,8 @@ const Page = () => {
     const [print, setPrint] = useState('Старт');
     const [colorNow, setColorNow] = useState('#006400');
     const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+    const [Sekundomer , SetSekundomer] = useState(0);
+    
 
     // Определяем размер экрана только на клиенте
     const isBigScreen = useMediaQuery({ query: '(min-width: 500px)' }, undefined, 
@@ -52,9 +54,12 @@ const Page = () => {
     ];
 
     const startGame = () => {
-        if (selected.length < 2) return;
         
+        if (selected.length < 2 || chastota<=0) return;
+        let sekundomer = 0
         const id = setInterval(() => {
+            sekundomer+=chastota/1000
+            SetSekundomer(sekundomer)
             setPrint(selected[Math.floor(Math.random() * selected.length)]);
             setColorNow(Colors[Math.floor(Math.random() * Colors.length)]);
         }, chastota);
@@ -79,6 +84,7 @@ const Page = () => {
                 {/* Рендерим только на клиенте после гидратации */}
                 {start ? (
                     <main>
+                        <div>{Sekundomer} сек.</div>
                         <div className="print" style={{ background: colorNow }}>
                             <span>{print}</span>
                         </div>
@@ -98,8 +104,13 @@ const Page = () => {
                                 <div>Выбрать частоту (миллисекунды)</div>
                                 <input 
                                     type="number" 
-                                    onChange={e => setChastota(Number(e.target.value))} 
-                                    value={chastota}
+                                    onChange={e => {
+                                        let line = e.target.value
+                                        
+                                        
+                                        setChastota(Number(line))
+                                    }} 
+                                    value={String(chastota).replace(/^0+/, '')}
                                     min="100"
                                 />
                                 <div style={{ fontSize: '11px' }}>*чем меньше, тем быстрее смена</div>
@@ -137,7 +148,7 @@ const Page = () => {
                                 <div 
                                     className="Start" 
                                     onClick={startGame}
-                                    style={{ opacity: selected.length < 2 ? 0.2 : 1 }}
+                                    style={{ opacity: selected.length >= 2 && chastota>0 ? 1 : 0.2 }}
                                 >
                                     Старт
                                 </div>
